@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o meu amor 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+
+    .foto {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .coração {
+      font-size: 50px;
+      animation: pulsar 1s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes pulsar {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      background: white;
+      color: #ff4d6d;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #ffe0e6;
+    }
+
+    #mensagem {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Para você 💖</h1>
+
+    <div class="coração">❤️</div>
+
+    <p>
+      Esse site é só um pedacinho do quanto você é importante pra mim.
+      Eu te amo muito 💕
+    </p>
+
+    <!-- Coloque suas fotos aqui (opcional) -->
+    <img class="foto" src="https://via.placeholder.com/250" alt="foto de vocês">
+
+    <br>
+
+    <button onclick="mostrarMensagem()">Clique aqui 💌</button>
+
+    <div id="mensagem">
+      Você é a melhor coisa que já aconteceu na minha vida ❤️
+    </div>
+  </div>
+
+  <script>
+    function mostrarMensagem() {
+      document.getElementById("mensagem").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
