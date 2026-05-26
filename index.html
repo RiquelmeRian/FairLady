@@ -31,9 +31,9 @@
     }
 
     .foto {
-      width: 250px;
+      width: 220px;
       border-radius: 20px;
-      margin-top: 20px;
+      margin: 10px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
@@ -75,6 +75,7 @@
 <body>
 
   <div class="container">
+
     <h1>Para você 💖</h1>
 
     <div class="coração">❤️</div>
@@ -84,30 +85,33 @@
       Eu te amo muito 💕
     </p>
 
-    <!-- Coloque suas fotos aqui (opcional) -->
-    <img class="foto" src="https://via.placeholder.com/250" alt="foto de vocês">
+    <!-- 📸 SUAS FOTOS AQUI -->
+    <div>
+      <img class="foto" src="foto1.jpg" alt="foto 1">
+      <img class="foto" src="foto2.jpg" alt="foto 2">
+      <img class="foto" src="foto3.jpg" alt="foto 3">
+    </div>
 
     <br>
 
     <button onclick="mostrarMensagem()">Clique aqui 💌</button>
 
-   <div id="mensagem">
-  <p>
-    Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk.
-  </p>
+    <div id="mensagem">
+      <p>Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk.</p>
 
-  <p>
-    Eu te amo muito Kah ❤️
-  </p>
+      <p>Eu te amo muito Kah ❤️</p>
 
-  <p>
-    Acho que nem em um milhão de anos amaria alguém como eu te amo.
-  </p>
+      <p>Acho que nem em um milhão de anos amaria alguém como eu te amo.</p>
 
-  <p>
-    Esse site é uma pequena parte do que posso aprender pra te agradar 💖
-  </p>
-</div>
+      <p>Esse site é uma pequena parte do que posso aprender pra te agradar 💖</p>
+    </div>
+
+    <!-- 🎵 MÚSICA (se quiser depois) -->
+    <audio controls autoplay loop>
+      <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
 
   <script>
     function mostrarMensagem() {
