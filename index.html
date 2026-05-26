@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para o meu amor 💖</title>
+  <title>Para o meu amor, minha Kah 💖</title>
 
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
       color: white;
@@ -32,6 +34,7 @@
 
     .foto {
       width: 220px;
+      max-width: 90%;
       border-radius: 20px;
       margin: 10px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -97,37 +100,32 @@
     <!-- 💌 BOTÃO -->
     <button onclick="mostrarMensagem()">Clique aqui 💌</button>
 
-<div id="mensagem">
-  <p>Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk.</p>
+    <div id="mensagem">
+      <p>Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk.</p>
 
-  <p>Eu te amo muito Kah ❤️</p>
+      <p>Eu te amo muito Kah ❤️</p>
 
-  <p>Acho que nem em um milhão de anos amaria alguém como eu te amo.</p>
+      <p>Acho que nem em um milhão de anos amaria alguém como eu te amo.</p>
 
-  <p>Esse site é uma pequena parte do que posso aprender pra te agradar 💖</p>
-</div>
+      <p>Esse site é uma pequena parte do que posso aprender pra te agradar 💖</p>
+    </div>
 
-<div style="margin-top: 30px;">
-  <p>🎵 Música do site</p>
+    <!-- 🎵 MÚSICA -->
+    <div style="margin-top: 30px;">
+      <p>🎵 Música do site</p>
 
-  <audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-  </audio>
+      <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
 
-  <br><br>
+      <br><br>
 
-  <button onclick="tocarMusica()">
-    ▶️ Tocar música
-  </button>
-</div>
+      <button onclick="tocarMusica()">
+        ▶️ Tocar música
+      </button>
+    </div>
 
-<script>
-  function tocarMusica() {
-    const audio = document.getElementById("musica");
-    audio.volume = 1;
-    audio.play();
-  }
-</script>
+  </div>
 
   <script>
     function mostrarMensagem() {
@@ -135,7 +133,9 @@
     }
 
     function tocarMusica() {
-      document.getElementById("musica").play();
+      const audio = document.getElementById("musica");
+      audio.volume = 1;
+      audio.play();
     }
   </script>
 
