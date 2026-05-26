@@ -110,16 +110,24 @@
 <div style="margin-top: 30px;">
   <p>🎵 Música do site</p>
 
-  <audio id="musica" controls loop>
+  <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
   <br><br>
 
-  <button onclick="document.getElementById('musica').play()">
+  <button onclick="tocarMusica()">
     ▶️ Tocar música
   </button>
 </div>
+
+<script>
+  function tocarMusica() {
+    const audio = document.getElementById("musica");
+    audio.volume = 1;
+    audio.play();
+  }
+</script>
 
   <script>
     function mostrarMensagem() {
