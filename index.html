@@ -68,6 +68,8 @@
       border-radius: 10px;
       cursor: pointer;
       margin-top: 20px;
+      margin-right: 5px;
+      margin-left: 5px;
     }
 
     button:hover {
@@ -128,6 +130,11 @@
       <button onclick="tocarPlaylist()">
         ▶️ Toca o play DJ
       </button>
+
+      <!-- 🎁 BOTÃO SURPRESA FINAL -->
+      <button onclick="surpresaFinal()">
+        🎁 Surpresa final
+      </button>
     </div>
 
   </div>
@@ -135,6 +142,10 @@
   <script>
     function mostrarMensagem() {
       document.getElementById("mensagem").style.display = "block";
+    }
+
+    function surpresaFinal() {
+      window.location.href = "surpresa.html";
     }
 
     const playlist = [
@@ -167,4 +178,5 @@
   </script>
 
 </body>
+</html>
 </html>
