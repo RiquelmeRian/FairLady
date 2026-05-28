@@ -16,82 +16,95 @@
       text-align: center;
     }
 
-    /* 🌄 CUTSCENE STARDew VALLEY */
+    /* 🌄 CUTSCENE FINAL STARDew VALLEY */
     .scene {
       position: fixed;
       width: 100%;
       height: 100%;
       overflow: hidden;
       z-index: -1;
-      animation: camera 8s ease-in-out infinite;
+      animation: cameraMove 10s ease-in-out infinite;
     }
 
+    /* 🌅 céu final (dia → pôr do sol emocional) */
     .sky {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(#7ec8e3 0%, #a8d5ba 60%, #f2c57c 100%);
-      animation: skyShift 18s ease-in-out infinite;
+      background: linear-gradient(
+        180deg,
+        #8fd3ff 0%,
+        #b8e6c1 50%,
+        #f7c58c 80%,
+        #f08a6c 100%
+      );
+      animation: skyFade 12s ease-in-out infinite;
     }
 
-    @keyframes skyShift {
+    @keyframes skyFade {
       0% { filter: brightness(1); }
-      50% { filter: brightness(0.8); }
+      50% { filter: brightness(0.75); }
       100% { filter: brightness(1); }
     }
 
-    .sun {
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-      transform: translateX(-50%);
-      background: #ffe08a;
-      box-shadow: 0 0 0 8px #ffd36b, 0 0 0 16px rgba(255, 211, 107, 0.3);
-      animation: sunMove 18s ease-in-out infinite;
-    }
-
-    @keyframes sunMove {
-      0% { transform: translate(-50%, 20px); }
-      50% { transform: translate(-50%, -40px); }
-      100% { transform: translate(-50%, 20px); }
-    }
-
+    /* ⛰ montanha fundo */
     .mountain-back {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 60%;
-      background: linear-gradient(#3e6b4f, #2f4f3c);
-      clip-path: polygon(0 100%, 15% 70%, 30% 85%, 45% 60%, 60% 80%, 75% 55%, 90% 75%, 100% 60%, 100% 100%);
-      opacity: 0.8;
+      height: 70%;
+      background: linear-gradient(#3d6b4f, #2c4a38);
+      clip-path: polygon(
+        0 100%, 10% 65%, 25% 80%, 40% 55%, 55% 75%,
+        70% 50%, 85% 70%, 100% 55%, 100% 100%
+      );
+      opacity: 0.75;
+      animation: backMove 10s ease-in-out infinite;
     }
 
+    /* ⛰ montanha frente */
     .mountain-front {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 40%;
-      background: linear-gradient(#2b4a37, #1f3528);
-      clip-path: polygon(0 100%, 20% 75%, 40% 95%, 60% 65%, 80% 90%, 100% 70%, 100% 100%);
+      height: 55%;
+      background: linear-gradient(#2b4a37, #1a2e22);
+      clip-path: polygon(
+        0 100%, 15% 70%, 30% 90%, 50% 60%,
+        70% 85%, 85% 65%, 100% 80%, 100% 100%
+      );
+      animation: frontMove 8s ease-in-out infinite;
     }
 
+    /* 🌿 chão */
     .grass {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 15%;
-      background: linear-gradient(#2f7a3e, #1f5a2f);
+      height: 18%;
+      background: linear-gradient(#2f7a3e, #1e5a2d);
     }
 
-    @keyframes camera {
-      0% { transform: translateY(10px) scale(1); }
-      50% { transform: translateY(-10px) scale(1.02); }
-      100% { transform: translateY(10px) scale(1); }
+    /* 🎥 câmera subindo (cutscene real feeling) */
+    @keyframes cameraMove {
+      0% { transform: translateY(25px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(25px); }
     }
 
-    /* ===== SEU SITE ORIGINAL (NÃO ALTERADO) ===== */
+    @keyframes backMove {
+      0% { transform: translateY(15px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(15px); }
+    }
+
+    @keyframes frontMove {
+      0% { transform: translateY(20px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(20px); }
+    }
+
+    /* ===== SEU SITE (NÃO ALTERADO) ===== */
 
     .container {
       padding: 50px 20px;
@@ -154,10 +167,9 @@
 
 <body>
 
-  <!-- 🌄 CUTSCENE BACKGROUND -->
+  <!-- 🌄 CUTSCENE FINAL STARDew -->
   <div class="scene">
     <div class="sky"></div>
-    <div class="sun"></div>
     <div class="mountain-back"></div>
     <div class="mountain-front"></div>
     <div class="grass"></div>
@@ -174,7 +186,6 @@
       Eu te amo muito 💕
     </p>
 
-    <!-- 📸 FOTOS -->
     <div>
       <img class="foto" src="foto1.jpg" alt="foto 1">
       <img class="foto" src="foto2.jpg" alt="foto 2">
@@ -263,6 +274,9 @@
     tocarMusica(musicaAtual + 1);
   });
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
