@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -122,17 +123,15 @@
       <p>Eu fiz dia 26 uma mudança, agora dia 28 eu consegui colocar a maldita musica, to feliz, amor, foi o melhor investimento de tempo do mundooo</p>
     </div>
 
-    <!-- 🎵 MÚSICA -->
+    <!-- 🎵 PLAYLIST -->
     <div style="margin-top: 30px;">
-      <p>🎵 Música do site</p>
+      <p>🎵 Nossa playlist 💖</p>
 
-      <audio id="musica" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-      </audio>
+      <audio id="musica" controls></audio>
 
       <br><br>
 
-      <button onclick="tocarMusica()">
+      <button onclick="tocarPlaylist()">
         ▶️ Toca o play DJ
       </button>
     </div>
@@ -144,12 +143,34 @@
       document.getElementById("mensagem").style.display = "block";
     }
 
-    function tocarMusica() {
-      const audio = document.getElementById("musica");
-      audio.volume = 1;
-      audio.play();
+    const playlist = [
+      "musica1.mp3",
+      "musica2.mp3",
+      "musica3.mp3"
+    ];
+
+    let musicaAtual = 0;
+
+    const player = document.getElementById("musica");
+
+    function tocarPlaylist() {
+      player.src = playlist[musicaAtual];
+      player.volume = 1;
+      player.play();
     }
+
+    player.addEventListener("ended", () => {
+      musicaAtual++;
+
+      if (musicaAtual >= playlist.length) {
+        musicaAtual = 0;
+      }
+
+      player.src = playlist[musicaAtual];
+      player.play();
+    });
   </script>
 
 </body>
 </html>
+```
