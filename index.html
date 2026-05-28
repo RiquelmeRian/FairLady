@@ -138,40 +138,49 @@
 
   </div>
 
-  <script>
-    function mostrarMensagem() {
-      document.getElementById("mensagem").style.display = "block";
+<script>
+  function mostrarMensagem() {
+    document.getElementById("mensagem").style.display = "block";
+  }
+
+  const playlist = [
+    "musica1.mp3",
+    "musica2.mp3",
+    "musica3.mp3",
+    "musica4.mp3",
+    "musica5.mp3"
+  ];
+
+  let musicaAtual = 0;
+  const player = document.getElementById("musica");
+
+  function tocarMusica(index) {
+    if (index >= playlist.length) {
+      musicaAtual = 0;
+    } else {
+      musicaAtual = index;
     }
 
-    const playlist = [
-      "musica1.mp3",
-      "musica2.mp3",
-      "musica3.mp3",
-      "musica4.mp3",
-      "musica5.mp3"
-    ];
+    player.src = playlist[musicaAtual];
+    player.load();
 
-    let musicaAtual = 0;
+    const playPromise = player.play();
 
-    const player = document.getElementById("musica");
-
-    function tocarPlaylist() {
-      player.src = playlist[musicaAtual];
-      player.volume = 1;
-      player.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log("Erro ao tocar música:", error);
+      });
     }
+  }
 
-    player.addEventListener("ended", () => {
-      musicaAtual++;
+  function tocarPlaylist() {
+    tocarMusica(musicaAtual);
+  }
 
-      if (musicaAtual >= playlist.length) {
-        musicaAtual = 0;
-      }
-
-      player.src = playlist[musicaAtual];
-      player.play();
-    });
-  </script>
+  player.addEventListener("ended", () => {
+    tocarMusica(musicaAtual + 1);
+  });
+</script>
 
 </body>
 </html>
