@@ -41,6 +41,21 @@
       animation: skyFade 12s ease-in-out infinite;
     }
 
+    /* ☁️ NOVO: nuvens leves estilo Stardew */
+    .sky::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 40%);
+      animation: cloudsMove 25s linear infinite;
+    }
+
+    @keyframes cloudsMove {
+      0% { transform: translateX(-10%); }
+      100% { transform: translateX(10%); }
+    }
+
     @keyframes skyFade {
       0% { filter: brightness(1); }
       50% { filter: brightness(0.75); }
@@ -60,6 +75,9 @@
       );
       opacity: 0.75;
       animation: backMove 10s ease-in-out infinite;
+
+      /* 🌫 NOVO: profundidade */
+      filter: blur(1px);
     }
 
     /* ⛰ montanha frente */
@@ -83,6 +101,9 @@
       width: 100%;
       height: 18%;
       background: linear-gradient(#2f7a3e, #1e5a2d);
+
+      /* 🌿 NOVO: profundidade no chão */
+      box-shadow: inset 0 10px 20px rgba(0,0,0,0.25);
     }
 
     /* 🎥 câmera subindo (cutscene real feeling) */
