@@ -32,18 +32,11 @@
       margin: 0 auto 20px auto;
     }
 
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
     .foto {
       width: 220px;
       max-width: 90%;
       border-radius: 20px;
+      margin: 10px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
@@ -68,8 +61,6 @@
       border-radius: 10px;
       cursor: pointer;
       margin-top: 20px;
-      margin-right: 5px;
-      margin-left: 5px;
     }
 
     button:hover {
@@ -80,12 +71,6 @@
       display: none;
       margin-top: 20px;
       font-size: 18px;
-    }
-
-    audio {
-      margin-top: 10px;
-      width: 90%;
-      max-width: 400px;
     }
   </style>
 </head>
@@ -104,19 +89,37 @@
     </p>
 
     <!-- 📸 FOTOS -->
-    <div class="galeria">
+    <div>
       <img class="foto" src="foto1.jpg" alt="foto 1">
       <img class="foto" src="foto2.jpg" alt="foto 2">
       <img class="foto" src="foto3.jpg" alt="foto 3">
     </div>
 
+    <br>
+
+    <!-- 💌 BOTÃO -->
     <button onclick="mostrarMensagem()">Clique aqui 💌</button>
 
     <div id="mensagem">
-      <p>Você mudou minha vida de maneiras que eu nunca imaginei...</p>
+      <p>Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk</p>
+      
+      <p>Aiai, você faz cartas da vida real e eu vou começar a fazer digital, porque não consigo escrever mais kkkkkkk</p>
+        
+      <p>Quem sabe mais pra frente faço mais cartas como aquelas que escrevi e você se apaixonou, não uma ou duas, mas tantas quanto voce merece.</p>
+        
+      <p>Nunca tinha me empenhado tanto desde 20h até 2h da manhã arrumando isso, cada uma que cê me arruma viu, eu te amo minha nerd</p>
+        
       <p>Eu te amo muito Kah ❤️</p>
+
       <p>Acho que nem em um milhão de anos amaria alguém como eu te amo.</p>
+      
+      <p>Juro de pé junto que tentei por a musica anos 80, mas não deu, falhei miseravelmente, ah amor, agora eu vou dormir e jogar algo.</p>
+      
+      <p>Amanhã vejo se consigo arrumar o resto aqui desse site esquisito tá muito rosa pro meu gosto e você nem gosta, vou ver se mudo.</p>
+      
       <p>Esse site é uma pequena parte do que posso aprender pra te agradar 💖</p>
+      
+      <p>Eu fiz dia 26 uma mudança, agora dia 28 eu consegui colocar a maldita musica, to feliz, amor, foi o melhor investimento de tempo do mundooo</p>
     </div>
 
     <!-- 🎵 PLAYLIST -->
@@ -125,58 +128,68 @@
 
       <audio id="musica" controls></audio>
 
-      <br>
+      <br><br>
 
       <button onclick="tocarPlaylist()">
         ▶️ Toca o play DJ
       </button>
 
-      <!-- 🎁 BOTÃO SURPRESA FINAL -->
+      <!-- 🎁 BOTÃO SURPRESA (ADICIONADO) -->
       <button onclick="surpresaFinal()">
         🎁 Surpresa final
       </button>
+
     </div>
 
   </div>
 
-  <script>
-    function mostrarMensagem() {
-      document.getElementById("mensagem").style.display = "block";
-    }
+<script>
+  function mostrarMensagem() {
+    document.getElementById("mensagem").style.display = "block";
+  }
 
-    function surpresaFinal() {
-      window.location.href = "surpresa.html";
-    }
+  function surpresaFinal() {
+    window.location.href = "surpresa.html";
+  }
 
-    const playlist = [
-      "musica1.mp3",
-      "musica2.mp3",
-      "musica3.mp3",
-      "musica4.mp3",
-      "musica5.mp3"
-    ];
+  const playlist = [
+    "musica1.mp3",
+    "musica2.mp3",
+    "musica3.mp3",
+    "musica4.mp3",
+    "musica5.mp3"
+  ];
 
-    let musicaAtual = 0;
-    const player = document.getElementById("musica");
+  let musicaAtual = 0;
+  const player = document.getElementById("musica");
 
-    function tocarPlaylist() {
+  function tocarMusica(index) {
+    if (index >= playlist.length) {
       musicaAtual = 0;
-      player.src = playlist[musicaAtual];
-      player.play();
+    } else {
+      musicaAtual = index;
     }
 
-    player.addEventListener("ended", () => {
-      musicaAtual++;
+    player.src = playlist[musicaAtual];
+    player.load();
 
-      if (musicaAtual >= playlist.length) {
-        musicaAtual = 0;
-      }
+    const playPromise = player.play();
 
-      player.src = playlist[musicaAtual];
-      player.play();
-    });
-  </script>
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log("Erro ao tocar música:", error);
+      });
+    }
+  }
+
+  function tocarPlaylist() {
+    tocarMusica(musicaAtual);
+  }
+
+  player.addEventListener("ended", () => {
+    tocarMusica(musicaAtual + 1);
+  });
+</script>
 
 </body>
-</html>
 </html>
