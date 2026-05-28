@@ -16,7 +16,6 @@
       text-align: center;
     }
 
-    /* 🌄 CUTSCENE FINAL STARDew VALLEY */
     .scene {
       position: fixed;
       width: 100%;
@@ -26,7 +25,6 @@
       animation: cameraMove 10s ease-in-out infinite;
     }
 
-    /* 🌅 céu final (dia → pôr do sol emocional) */
     .sky {
       position: absolute;
       width: 100%;
@@ -41,7 +39,6 @@
       animation: skyFade 12s ease-in-out infinite;
     }
 
-    /* ☁️ NOVO: nuvens leves estilo Stardew */
     .sky::after {
       content: "";
       position: absolute;
@@ -62,7 +59,6 @@
       100% { filter: brightness(1); }
     }
 
-    /* ⛰ montanha fundo */
     .mountain-back {
       position: absolute;
       bottom: 0;
@@ -76,11 +72,9 @@
       opacity: 0.75;
       animation: backMove 10s ease-in-out infinite;
 
-      /* 🌫 NOVO: profundidade */
       filter: blur(1px);
     }
 
-    /* ⛰ montanha frente */
     .mountain-front {
       position: absolute;
       bottom: 0;
@@ -94,7 +88,6 @@
       animation: frontMove 8s ease-in-out infinite;
     }
 
-    /* 🌿 chão */
     .grass {
       position: absolute;
       bottom: 0;
@@ -102,11 +95,9 @@
       height: 18%;
       background: linear-gradient(#2f7a3e, #1e5a2d);
 
-      /* 🌿 NOVO: profundidade no chão */
       box-shadow: inset 0 10px 20px rgba(0,0,0,0.25);
     }
 
-    /* 🎥 câmera subindo (cutscene real feeling) */
     @keyframes cameraMove {
       0% { transform: translateY(25px); }
       50% { transform: translateY(-15px); }
@@ -125,7 +116,6 @@
       100% { transform: translateY(20px); }
     }
 
-    /* ===== SEU SITE (NÃO ALTERADO) ===== */
 
     .container {
       padding: 50px 20px;
@@ -188,7 +178,6 @@
 
 <body>
 
-  <!-- 🌄 CUTSCENE FINAL STARDew -->
   <div class="scene">
     <div class="sky"></div>
     <div class="mountain-back"></div>
