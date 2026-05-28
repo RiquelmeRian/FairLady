@@ -16,35 +16,27 @@
       text-align: center;
     }
 
-    /* 🌄 CUTSCENE STARDew VALLEY BACKGROUND */
+    /* 🌄 CUTSCENE STARDew VALLEY */
     .scene {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
       z-index: -1;
-      animation: cameraMove 10s ease-in-out infinite;
+      animation: camera 8s ease-in-out infinite;
     }
 
     .sky {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        180deg,
-        #7ec8e3 0%,
-        #a8d5ba 40%,
-        #f7c58c 70%,
-        #f28c8c 100%
-      );
-      animation: skyCycle 20s ease-in-out infinite;
+      background: linear-gradient(#7ec8e3 0%, #a8d5ba 60%, #f2c57c 100%);
+      animation: skyShift 18s ease-in-out infinite;
     }
 
-    @keyframes skyCycle {
+    @keyframes skyShift {
       0% { filter: brightness(1); }
-      50% { filter: brightness(0.85); }
+      50% { filter: brightness(0.8); }
       100% { filter: brightness(1); }
     }
 
@@ -52,18 +44,18 @@
       position: absolute;
       top: 15%;
       left: 50%;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, #fff3b0, transparent 70%);
+      width: 80px;
+      height: 80px;
       transform: translateX(-50%);
-      animation: sunMove 20s ease-in-out infinite;
-      opacity: 0.8;
+      background: #ffe08a;
+      box-shadow: 0 0 0 8px #ffd36b, 0 0 0 16px rgba(255, 211, 107, 0.3);
+      animation: sunMove 18s ease-in-out infinite;
     }
 
     @keyframes sunMove {
-      0% { transform: translate(-50%, 20px); opacity: 0.9; }
-      50% { transform: translate(-50%, -60px); opacity: 0.4; }
-      100% { transform: translate(-50%, 20px); opacity: 0.9; }
+      0% { transform: translate(-50%, 20px); }
+      50% { transform: translate(-50%, -40px); }
+      100% { transform: translate(-50%, 20px); }
     }
 
     .mountain-back {
@@ -71,8 +63,8 @@
       bottom: 0;
       width: 100%;
       height: 60%;
-      background: linear-gradient(to top, #3b5f4a, #5f8f6f);
-      clip-path: polygon(0 100%, 20% 60%, 40% 80%, 60% 50%, 80% 75%, 100% 55%, 100% 100%);
+      background: linear-gradient(#3e6b4f, #2f4f3c);
+      clip-path: polygon(0 100%, 15% 70%, 30% 85%, 45% 60%, 60% 80%, 75% 55%, 90% 75%, 100% 60%, 100% 100%);
       opacity: 0.8;
     }
 
@@ -81,8 +73,8 @@
       bottom: 0;
       width: 100%;
       height: 40%;
-      background: linear-gradient(to top, #2e4a3a, #4f7a5f);
-      clip-path: polygon(0 100%, 25% 70%, 45% 90%, 65% 60%, 85% 85%, 100% 70%, 100% 100%);
+      background: linear-gradient(#2b4a37, #1f3528);
+      clip-path: polygon(0 100%, 20% 75%, 40% 95%, 60% 65%, 80% 90%, 100% 70%, 100% 100%);
     }
 
     .grass {
@@ -90,16 +82,16 @@
       bottom: 0;
       width: 100%;
       height: 15%;
-      background: linear-gradient(to top, #2f6b3f, #3f8a4f);
+      background: linear-gradient(#2f7a3e, #1f5a2f);
     }
 
-    @keyframes cameraMove {
-      0% { transform: translateY(10px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(10px); }
+    @keyframes camera {
+      0% { transform: translateY(10px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.02); }
+      100% { transform: translateY(10px) scale(1); }
     }
 
-    /* ===== SEU CSS ORIGINAL (NÃO MEXI EM NADA) ===== */
+    /* ===== SEU SITE ORIGINAL (NÃO ALTERADO) ===== */
 
     .container {
       padding: 50px 20px;
@@ -182,6 +174,7 @@
       Eu te amo muito 💕
     </p>
 
+    <!-- 📸 FOTOS -->
     <div>
       <img class="foto" src="foto1.jpg" alt="foto 1">
       <img class="foto" src="foto2.jpg" alt="foto 2">
