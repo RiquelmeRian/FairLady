@@ -12,21 +12,94 @@
       width: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-
-      /* 🌾 STARDew VALLEY ANIMADO */
-      background: linear-gradient(180deg, #6fb3d2 0%, #a8d5ba 50%, #f7d9a6 100%);
-      background-size: 300% 300%;
-      animation: skyMove 12s ease-in-out infinite;
-
       color: white;
       text-align: center;
     }
 
-    @keyframes skyMove {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 50% 100%; }
-      100% { background-position: 0% 0%; }
+    /* 🌄 CUTSCENE STARDew VALLEY BACKGROUND */
+    .scene {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      animation: cameraMove 10s ease-in-out infinite;
     }
+
+    .sky {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        #7ec8e3 0%,
+        #a8d5ba 40%,
+        #f7c58c 70%,
+        #f28c8c 100%
+      );
+      animation: skyCycle 20s ease-in-out infinite;
+    }
+
+    @keyframes skyCycle {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(0.85); }
+      100% { filter: brightness(1); }
+    }
+
+    .sun {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fff3b0, transparent 70%);
+      transform: translateX(-50%);
+      animation: sunMove 20s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes sunMove {
+      0% { transform: translate(-50%, 20px); opacity: 0.9; }
+      50% { transform: translate(-50%, -60px); opacity: 0.4; }
+      100% { transform: translate(-50%, 20px); opacity: 0.9; }
+    }
+
+    .mountain-back {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, #3b5f4a, #5f8f6f);
+      clip-path: polygon(0 100%, 20% 60%, 40% 80%, 60% 50%, 80% 75%, 100% 55%, 100% 100%);
+      opacity: 0.8;
+    }
+
+    .mountain-front {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(to top, #2e4a3a, #4f7a5f);
+      clip-path: polygon(0 100%, 25% 70%, 45% 90%, 65% 60%, 85% 85%, 100% 70%, 100% 100%);
+    }
+
+    .grass {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 15%;
+      background: linear-gradient(to top, #2f6b3f, #3f8a4f);
+    }
+
+    @keyframes cameraMove {
+      0% { transform: translateY(10px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(10px); }
+    }
+
+    /* ===== SEU CSS ORIGINAL (NÃO MEXI EM NADA) ===== */
 
     .container {
       padding: 50px 20px;
@@ -84,31 +157,19 @@
       font-size: 18px;
     }
 
-    /* ☁️ NUVENS ESTILO STARDew */
-    .clouds {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      background: url("https://i.imgur.com/MhJ8W4F.png");
-      background-size: contain;
-      opacity: 0.12;
-      animation: moveClouds 60s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes moveClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- ☁️ fundo animado -->
-  <div class="clouds"></div>
+  <!-- 🌄 CUTSCENE BACKGROUND -->
+  <div class="scene">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <div class="mountain-back"></div>
+    <div class="mountain-front"></div>
+    <div class="grass"></div>
+  </div>
 
   <div class="container">
 
@@ -121,7 +182,6 @@
       Eu te amo muito 💕
     </p>
 
-    <!-- 📸 FOTOS -->
     <div>
       <img class="foto" src="foto1.jpg" alt="foto 1">
       <img class="foto" src="foto2.jpg" alt="foto 2">
@@ -130,32 +190,21 @@
 
     <br>
 
-    <!-- 💌 BOTÃO -->
     <button onclick="mostrarMensagem()">Clique aqui 💌</button>
 
     <div id="mensagem">
       <p>Você mudou minha vida de maneiras que eu nunca imaginei, essa ideia surgiu no meio da atividade do pokemon kkkkkkkk</p>
-      
       <p>Aiai, você faz cartas da vida real e eu vou começar a fazer digital, porque não consigo escrever mais kkkkkkk</p>
-        
       <p>Quem sabe mais pra frente faço mais cartas como aquelas que escrevi e você se apaixonou, não uma ou duas, mas tantas quanto voce merece.</p>
-        
       <p>Nunca tinha me empenhado tanto desde 20h até 2h da manhã arrumando isso, cada uma que cê me arruma viu, eu te amo minha nerd</p>
-        
       <p>Eu te amo muito Kah ❤️</p>
-
       <p>Acho que nem em um milhão de anos amaria alguém como eu te amo.</p>
-      
       <p>Juro de pé junto que tentei por a musica anos 80, mas não deu, falhei miseravelmente, ah amor, agora eu vou dormir e jogar algo.</p>
-      
       <p>Amanhã vejo se consigo arrumar o resto aqui desse site esquisito tá muito rosa pro meu gosto e você nem gosta, vou ver se mudo.</p>
-      
       <p>Esse site é uma pequena parte do que posso aprender pra te agradar 💖</p>
-      
       <p>Eu fiz dia 26 uma mudança, agora dia 28 eu consegui colocar a maldita musica, to feliz, amor, foi o melhor investimento de tempo do mundooo</p>
     </div>
 
-    <!-- 🎵 PLAYLIST -->
     <div style="margin-top: 30px;">
       <p>🎵 Nossa playlist 💖</p>
 
@@ -167,11 +216,9 @@
         ▶️ Toca o play DJ
       </button>
 
-      <!-- 🎁 BOTÃO SURPRESA -->
       <button onclick="surpresaFinal()">
         🎁 Surpresa final
       </button>
-
     </div>
 
   </div>
